@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ivonilson Marques — Sistemas e Automação B2B com IA</title>
-  <meta name="description" content="Ivonilson Marques — Sistemas e automação com IA para empresas que querem escalar sem contratar mais pessoas." />
-  <meta property="og:title" content="Ivonilson Marques — Automação B2B com IA" />
-  <meta property="og:description" content="Empresas crescem melhor com sistemas, não com mais pessoas." />
+  <title>Ivonilson Marques — Automação para Clínicas de Estética</title>
+  <meta name="description" content="Automação de atendimento e vendas para clínicas de estética de alto ticket. Diagnóstico antes da automação." />
+  <meta property="og:title" content="Ivonilson Marques — Automação para Clínicas de Estética" />
+  <meta property="og:description" content="Diagnóstico antes da automação. Sistemas sob medida pra clínicas de alto ticket." />
   <meta property="og:image" content="./perfil-biolink.jpg" />
   <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#080808" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23080808'/%3E%3Ctext x='16' y='22' font-family='Arial, sans-serif' font-size='16' font-weight='700' fill='%23B55830' text-anchor='middle'%3EIM%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
@@ -17,9 +19,9 @@
     body {
       position: relative;
       min-height: 100vh;
-      background: #090909;
+      background: #080808;
       font-family: 'Inter', sans-serif;
-      color: #F0F0F0;
+      color: #EFECE6;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -27,31 +29,16 @@
       overflow-x: hidden;
     }
 
-    body::before,
-    body::after {
+    /* Textura discreta de grid, sem glow nem gradiente de cor — regra: fundo escuro chapado */
+    body::before {
       content: '';
       position: fixed;
       inset: 0;
       pointer-events: none;
-    }
-
-    body::before {
       z-index: 0;
       background:
-        linear-gradient(115deg, transparent 0 36%, rgba(255,122,0,0.12) 42%, transparent 49%),
-        linear-gradient(290deg, transparent 0 52%, rgba(255,68,0,0.1) 58%, transparent 64%),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 92px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.018) 0 1px, transparent 1px 92px),
-        #090909;
-      background-size: 160% 160%, 150% 150%, 92px 92px, 92px 92px, auto;
-      opacity: 0.85;
-    }
-
-    body::after {
-      z-index: 0;
-      background:
-        radial-gradient(circle at 50% 0%, rgba(255,122,0,0.2) 0%, transparent 60%);
-      opacity: 0.8;
+        repeating-linear-gradient(90deg, rgba(239,236,230,0.02) 0 1px, transparent 1px 92px),
+        repeating-linear-gradient(0deg, rgba(239,236,230,0.015) 0 1px, transparent 1px 92px);
     }
 
     .page {
@@ -62,6 +49,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      animation: pageEnter 0.5s ease-out;
+    }
+
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .avatar {
@@ -69,30 +62,29 @@
       height: 120px;
       border-radius: 50%;
       padding: 2px;
-      background: #fff;
-      box-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 40px rgba(255,122,0,0.2);
+      background: #332E28;
       margin-bottom: 20px;
     }
-    
+
     .avatar img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
-      background: #111;
+      background: #14120F;
     }
 
     .name {
       font-size: 1.6rem;
       font-weight: 700;
-      color: #fff;
+      color: #EFECE6;
       margin-bottom: 6px;
       letter-spacing: -0.02em;
     }
 
     .subtitle {
       font-size: 0.9rem;
-      color: #ccc;
+      color: #BCB4A9;
       margin-bottom: 24px;
       font-weight: 400;
       text-align: center;
@@ -107,14 +99,14 @@
     }
 
     .social-icon {
-      color: #ccc;
+      color: #BCB4A9;
       width: 30px;
       height: 30px;
       transition: color 0.2s;
     }
 
     .social-icon:hover {
-      color: #FF7A00;
+      color: #B55830;
     }
 
     .links-container {
@@ -131,20 +123,22 @@
       width: 100%;
       min-height: 72px;
       padding: 16px 24px;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 20px;
-      background: transparent;
-      color: #fff;
+      border: 1px solid #332E28;
+      border-radius: 12px;
+      background: #14120F;
+      color: #EFECE6;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.15s ease-out;
       overflow: hidden;
     }
-    
+
     .btn:hover {
-      background: rgba(255,122,0,0.08);
-      border-color: #FF7A00;
-      box-shadow: 0 0 15px rgba(255,122,0,0.2);
+      border-color: #B55830;
       transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
     }
 
     .btn-icon {
@@ -172,51 +166,266 @@
     .btn-text {
       flex: 1;
       text-align: center;
-      font-weight: 800;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
+      font-weight: 600;
+      font-size: 0.95rem;
       line-height: 1.5;
       padding: 0 40px;
-      text-transform: uppercase;
     }
 
     .btn.disabled {
-      border-color: rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.4);
+      border-color: #332E28;
+      color: #554E49;
       pointer-events: none;
     }
 
     .btn-primary {
-      background: transparent;
-      border-color: rgba(255,122,0,0.6);
-      box-shadow: 0 0 20px rgba(255,122,0,0.15);
-      color: #FF7A00; /* Subtle text highlight */
+      background: #14120F;
+      border-color: #B55830;
+      color: #EFECE6;
     }
-    
+
     .btn-primary .btn-icon {
-      color: #FF7A00;
+      color: #B55830;
     }
 
     .btn-primary:hover {
-      background: rgba(255,122,0,0.05);
-      border-color: #FF7A00;
-      box-shadow: 0 0 30px rgba(255,122,0,0.3);
+      background: #1F1C19;
+      border-color: #B55830;
     }
 
+    /* --- MODAL STYLES --- */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
 
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #14120F;
+      border: 1px solid #332E28;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 480px;
+      padding: 40px 32px;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: translateY(0);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #888;
+      font-size: 28px;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .close-btn:hover {
+      color: #fff;
+    }
+
+    .modal-progress-wrap {
+      margin-bottom: 24px;
+    }
+
+    .modal-progress-label {
+      display: block;
+      font-size: 0.75rem;
+      color: #554E49;
+      margin-bottom: 8px;
+    }
+
+    .modal-progress {
+      width: 100%;
+      height: 3px;
+      background: #332E28;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .modal-progress-fill {
+      height: 100%;
+      background: #B55830;
+      width: 20%;
+      transition: width 0.3s ease;
+    }
+
+    .form-step {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateX(10px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .form-step h2 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+      color: #EFECE6;
+      text-align: left;
+      font-weight: 500;
+    }
+
+    .form-step p {
+      color: #BCB4A9;
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .input-group {
+      margin-bottom: 16px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: #BCB4A9;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #332E28;
+      background: #1F1C19;
+      color: #EFECE6;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .input-group input:focus {
+      border-color: #B55830;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .radio-card input {
+      display: none;
+    }
+
+    .card-content {
+      padding: 16px;
+      border: 1px solid #332E28;
+      border-radius: 10px;
+      background: #1F1C19;
+      color: #BCB4A9;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+      font-weight: 500;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .radio-card input:checked + .card-content {
+      background: #14120F;
+      border-color: #B55830;
+      color: #EFECE6;
+    }
+
+    .card-content:active {
+      transform: scale(0.97);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .form-step .btn {
+      min-height: 54px;
+      padding: 12px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      background: #1F1C19;
+      border-color: #332E28;
+      color: #EFECE6;
+      flex: 0.5;
+    }
+
+    .btn-secondary:hover {
+      background: #262220;
+      border-color: #554E49;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary.submit-btn {
+      flex: 1.5;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+    .text-center h2, .text-center p {
+      text-align: center;
+    }
+
+    .btn-calendar {
+      margin-top: 16px;
+      justify-content: center;
+      background: #14120F;
+    }
   </style>
 
-  <!-- Google tag (gtag.js) - COLOQUE SEU ID AQUI -->
+  <!--
+    Analytics desativado até ter IDs reais (evita disparo de tag quebrada).
+    Pra ativar: descomente os dois blocos abaixo e troque G-XXXXXXXXXX / SEU_PIXEL_ID_AQUI pelos IDs reais.
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 
-  <!-- Meta Pixel Code - COLOQUE SEU ID AQUI -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -232,7 +441,8 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Meta Pixel Code -->
+  -->
+
 </head>
 <body>
   <div class="page">
@@ -241,7 +451,7 @@
     </div>
 
     <h1 class="name">Ivonilson Marques</h1>
-    <p class="subtitle">Empresas crescem melhor com sistemas, não com mais pessoas.</p>
+    <p class="subtitle">automatizo o operacional repetitivo e recupero venda perdida por demora. diagnóstico antes da automação.</p>
 
     <div class="social-links">
       <a href="https://wa.me/5585997542412" target="_blank" rel="noopener" class="social-icon">
@@ -259,27 +469,318 @@
           <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
         </div>
         <div class="btn-text">
-          Conversar Direto Comigo (WhatsApp)
-          <span style="display:block; font-size:0.75rem; color: rgba(255,122,0,0.8); margin-top:4px; font-weight: 500; letter-spacing: 0; text-transform: none;">Tire dúvidas sobre IA, automação e sistemas para a sua empresa. Para quem ainda quer entender se faz sentido.</span>
+          conversar direto comigo (whatsapp)
+          <span style="display:block; font-size:0.75rem; color: #BCB4A9; margin-top:4px; font-weight: 400;">pra quem ainda quer entender se faz sentido antes de decidir qualquer coisa</span>
         </div>
       </a>
 
-      <a id="btn-aplicacao" href="#" class="btn" target="_blank" rel="noopener">
+      <a id="btn-aplicacao" href="#" class="btn" rel="noopener">
         <div class="btn-icon">
           <!-- Clipboard Icon -->
           <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><line x1="9" y1="14" x2="15" y2="14"></line><line x1="9" y1="18" x2="15" y2="18"></line><line x1="9" y1="10" x2="15" y2="10"></line></svg>
         </div>
         <div class="btn-text">
-          QUERO IMPLEMENTAR UM SISTEMA.
-          <span style="display:block; font-size:0.75rem; color: rgba(255,255,255,0.5); margin-top:4px; font-weight: 500; letter-spacing: 0; text-transform: none;">Já sabe o que precisa? Vamos tirar o projeto do papel.</span>
+          quero automatizar minha empresa
+          <span style="display:block; font-size:0.75rem; color: #554E49; margin-top:4px; font-weight: 400;">mapeamos sua operação antes de falar de solução</span>
         </div>
       </a>
 
     </div>
 
-    <p style="margin-top: 28px; font-size: 0.75rem; color: rgba(255,255,255,0.45); text-align: center; line-height: 1.6; max-width: 95%;">
-      Todos os projetos passam por uma análise inicial. Implementamos apenas soluções com potencial claro de gerar retorno para a operação.
+    <p style="margin-top: 28px; font-size: 0.75rem; color: #554E49; text-align: center; line-height: 1.6; max-width: 95%;">
+      todos os projetos passam por uma análise inicial. implemento apenas soluções com potencial claro de gerar retorno para a operação.
     </p>
   </div>
+
+  <!-- Modal do Formulário -->
+  <div id="form-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-modal" class="close-btn">&times;</button>
+
+      <div id="modal-progress-wrap" class="modal-progress-wrap">
+        <span id="modal-progress-label" class="modal-progress-label">passo 1 de 5</span>
+        <div class="modal-progress">
+          <div id="modal-progress-fill" class="modal-progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- Passo 1: Informações de Contato -->
+      <div id="step-1" class="form-step active">
+        <h2>seus dados</h2>
+        <p>pra começar, precisamos saber com quem estamos falando.</p>
+        <div class="input-group">
+          <label>nome completo</label>
+          <input type="text" id="lead-name" placeholder="ex: joão da silva" required>
+        </div>
+        <div class="input-group">
+          <label>e-mail</label>
+          <input type="email" id="lead-email" placeholder="ex: joao@empresa.com" required>
+        </div>
+        <div class="input-group">
+          <label>whatsapp</label>
+          <input type="tel" id="lead-phone" placeholder="ex: 11 99999-9999" required>
+        </div>
+        <p style="font-size: 0.75rem; color: #554E49; margin-bottom: 4px; line-height: 1.4;">usamos isso só pra agendar a conversa — sem spam, sem repasse.</p>
+        <button class="btn btn-primary submit-btn" style="width: 100%; margin-top: 12px;" onclick="nextStep(2)">continuar</button>
+      </div>
+
+      <!-- Passo 2: Ideia do Projeto -->
+      <div id="step-2" class="form-step">
+        <h2>o que você tem em mente?</h2>
+        <p>isso ajuda a preparar a conversa antes de começarmos.</p>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="projectIdea" value="Já sabe o que quer automatizar">
+            <div class="card-content">já sei o que quero automatizar</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="projectIdea" value="Não sabe exatamente o quê">
+            <div class="card-content">sei que preciso automatizar algo, mas não sei exatamente o quê</div>
+          </label>
+        </div>
+        <div id="idea-detail-group" class="input-group" style="display: none;">
+          <label>o que você imagina automatizar? (opcional)</label>
+          <input type="text" id="lead-idea" placeholder="ex: responder o whatsapp mais rápido">
+        </div>
+        <div class="nav-buttons">
+          <button class="btn btn-secondary" onclick="nextStep(1)">voltar</button>
+          <button class="btn btn-primary submit-btn" onclick="nextStep(3)">continuar</button>
+        </div>
+      </div>
+
+      <!-- Passo 3: Decisão -->
+      <div id="step-3" class="form-step">
+        <h2>você é o decisor?</h2>
+        <p>você é o responsável pela decisão técnica e financeira deste projeto?</p>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="decision" value="Sim, eu decido">
+            <div class="card-content">sim, eu tomo as decisões</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="decision" value="Não, preciso de aprovação">
+            <div class="card-content">não, preciso de aprovação da diretoria/sócios</div>
+          </label>
+        </div>
+        <div class="nav-buttons">
+          <button class="btn btn-secondary" onclick="nextStep(2)">voltar</button>
+          <button class="btn btn-primary submit-btn" onclick="nextStep(4)">continuar</button>
+        </div>
+      </div>
+
+      <!-- Passo 4: Urgência -->
+      <div id="step-4" class="form-step">
+        <h2>urgência</h2>
+        <p>qual a sua urgência pra implementar esse projeto?</p>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="urgency" value="Urgente (Para ontem)">
+            <div class="card-content">pra ontem (urgente)</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="urgency" value="Em até 15 dias">
+            <div class="card-content">em até 15 dias</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="urgency" value="Só pesquisando">
+            <div class="card-content">estou apenas pesquisando</div>
+          </label>
+        </div>
+        <div class="nav-buttons">
+          <button class="btn btn-secondary" onclick="nextStep(3)">voltar</button>
+          <button class="btn btn-primary submit-btn" onclick="nextStep(5)">continuar</button>
+        </div>
+      </div>
+
+      <!-- Passo 5: Faturamento -->
+      <div id="step-5" class="form-step">
+        <h2>faturamento da empresa</h2>
+        <p>isso ajuda a dimensionar a proposta certa pro tamanho da operação — não influencia se você é atendido ou não.</p>
+        <div class="radio-group">
+          <label class="radio-card">
+            <input type="radio" name="revenue" value="Até R$ 50 mil/mês">
+            <div class="card-content">até R$ 50 mil/mês</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="revenue" value="R$ 50 mil a R$ 150 mil/mês">
+            <div class="card-content">R$ 50 mil a R$ 150 mil/mês</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="revenue" value="Acima de R$ 150 mil/mês">
+            <div class="card-content">acima de R$ 150 mil/mês</div>
+          </label>
+          <label class="radio-card">
+            <input type="radio" name="revenue" value="Prefiro não informar">
+            <div class="card-content">prefiro não informar</div>
+          </label>
+        </div>
+        <div class="nav-buttons">
+          <button class="btn btn-secondary" onclick="nextStep(4)">voltar</button>
+          <button class="btn btn-primary submit-btn" id="submit-btn" onclick="submitForm()">finalizar e agendar</button>
+        </div>
+      </div>
+
+      <!-- Passo 6: Agendamento -->
+      <div id="step-6" class="form-step text-center">
+        <h2>tudo certo.</h2>
+        <p>recebemos suas informações. escolha o melhor horário na agenda abaixo pra conversarmos sobre a sua operação.</p>
+        <a href="https://calendar.app.google/QqMaaVAkte77vBFSA" target="_blank" class="btn btn-primary btn-calendar">
+          <div class="btn-text" style="padding: 0;">abrir agenda</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('form-modal');
+    const openBtn = document.getElementById('btn-aplicacao');
+    const closeBtn = document.getElementById('close-modal');
+
+    function openModal() {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal();
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on click outside
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close on Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Toggle free-text detail field when lead already has a specific idea
+    document.querySelectorAll('input[name="projectIdea"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        const detailGroup = document.getElementById('idea-detail-group');
+        detailGroup.style.display = input.value === 'Já sabe o que quer automatizar' ? 'block' : 'none';
+      });
+    });
+
+    function updateProgress(step) {
+      const wrap = document.getElementById('modal-progress-wrap');
+      if (step >= 6) {
+        wrap.style.display = 'none';
+        return;
+      }
+      wrap.style.display = 'block';
+      document.getElementById('modal-progress-label').textContent = 'passo ' + step + ' de 5';
+      document.getElementById('modal-progress-fill').style.width = (step / 5 * 100) + '%';
+    }
+
+    let currentStep = 1;
+
+    function nextStep(step) {
+      // Basic validation for step 1
+      if (currentStep === 1 && step === 2) {
+        const name = document.getElementById('lead-name').value;
+        const email = document.getElementById('lead-email').value;
+        const phone = document.getElementById('lead-phone').value;
+        if (!name || !email || !phone) {
+          alert('Por favor, preencha todos os dados de contato.');
+          return;
+        }
+      }
+
+      // Basic validation for step 2
+      if (currentStep === 2 && step === 3) {
+        const idea = document.querySelector('input[name="projectIdea"]:checked');
+        if (!idea) {
+          alert('Por favor, selecione uma opção.');
+          return;
+        }
+      }
+
+      // Basic validation for step 3
+      if (currentStep === 3 && step === 4) {
+        const decision = document.querySelector('input[name="decision"]:checked');
+        if (!decision) {
+          alert('Por favor, selecione uma opção sobre decisão.');
+          return;
+        }
+      }
+
+      // Basic validation for step 4
+      if (currentStep === 4 && step === 5) {
+        const urgency = document.querySelector('input[name="urgency"]:checked');
+        if (!urgency) {
+          alert('Por favor, selecione sua urgência.');
+          return;
+        }
+      }
+
+      document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+      document.getElementById('step-' + step).classList.add('active');
+      currentStep = step;
+      updateProgress(step);
+    }
+
+    async function submitForm() {
+      const revenue = document.querySelector('input[name="revenue"]:checked');
+      if (!revenue) {
+        alert('Por favor, selecione uma faixa de faturamento.');
+        return;
+      }
+
+      const submitBtn = document.getElementById('submit-btn');
+      submitBtn.innerText = 'enviando...';
+      submitBtn.style.pointerEvents = 'none';
+      submitBtn.style.opacity = '0.7';
+
+      const data = {
+        nome: document.getElementById('lead-name').value,
+        email: document.getElementById('lead-email').value,
+        telefone: document.getElementById('lead-phone').value,
+        ideia_projeto: document.querySelector('input[name="projectIdea"]:checked').value,
+        detalhe_ideia: document.getElementById('lead-idea').value,
+        decisor: document.querySelector('input[name="decision"]:checked').value,
+        urgencia: document.querySelector('input[name="urgency"]:checked').value,
+        faturamento: revenue.value,
+        data_hora: new Date().toISOString()
+      };
+
+      const webhookUrl = 'https://goespassos01.app.n8n.cloud/webhook/diagnostico-geral';
+
+      try {
+        await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        // Success
+        nextStep(6);
+      } catch (error) {
+        console.error('Erro ao enviar dados:', error);
+        alert('Tivemos um pequeno erro de conexão, mas você pode prosseguir com o agendamento mesmo assim.');
+        nextStep(6);
+      } finally {
+        submitBtn.innerText = 'finalizar e agendar';
+        submitBtn.style.pointerEvents = 'auto';
+        submitBtn.style.opacity = '1';
+      }
+    }
+  </script>
 </body>
 </html>
