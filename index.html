@@ -531,6 +531,10 @@
           <label>whatsapp</label>
           <input type="tel" id="lead-phone" placeholder="ex: 11 99999-9999" required>
         </div>
+        <div class="input-group">
+          <label>qual é o seu negócio?</label>
+          <input type="text" id="lead-negocio" placeholder="ex: clínica de estética, salão, consultório" required>
+        </div>
         <p style="font-size: 0.75rem; color: #554E49; margin-bottom: 4px; line-height: 1.4;">usamos isso só pra agendar a conversa — sem spam, sem repasse.</p>
         <button class="btn btn-primary submit-btn" style="width: 100%; margin-top: 12px;" onclick="nextStep(2)">continuar</button>
       </div>
@@ -706,7 +710,8 @@
         const name = document.getElementById('lead-name').value;
         const email = document.getElementById('lead-email').value;
         const phone = document.getElementById('lead-phone').value;
-        if (!name || !email || !phone) {
+        const negocio = document.getElementById('lead-negocio').value;
+        if (!name || !email || !phone || !negocio) {
           alert('Por favor, preencha todos os dados de contato.');
           return;
         }
@@ -760,12 +765,14 @@
       const data = {
         nome: document.getElementById('lead-name').value,
         email: document.getElementById('lead-email').value,
-        telefone: document.getElementById('lead-phone').value,
-        ideia_projeto: document.querySelector('input[name="projectIdea"]:checked').value,
-        detalhe_ideia: document.getElementById('lead-idea').value,
+        whatsapp: document.getElementById('lead-phone').value,
+        negocio: document.getElementById('lead-negocio').value,
+        projeto: document.querySelector('input[name="projectIdea"]:checked').value,
+        contexto: document.getElementById('lead-idea').value,
         decisor: document.querySelector('input[name="decision"]:checked').value,
         urgencia: document.querySelector('input[name="urgency"]:checked').value,
         faturamento: revenue.value,
+        origem: 'link-bio',
         data_hora: new Date().toISOString()
       };
 
